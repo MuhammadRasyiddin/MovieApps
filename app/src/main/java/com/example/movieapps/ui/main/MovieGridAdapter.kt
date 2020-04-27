@@ -12,8 +12,8 @@ import com.example.movieapps.utils.movieUtils
 import kotlinx.android.synthetic.main.item_movie.view.*
 
 class MovieGridAdapter(
-    private val movieList: MutableList<Movie> = mutableListOf()
-//    private val onClickListener : (Movie) -> Unit
+    private val movieList: MutableList<Movie> = mutableListOf(),
+    private val onClickListener: (Movie) -> Unit
 ) : RecyclerView.Adapter<MovieGridAdapter.MovieGridViewHolder>() {
 
 
@@ -44,10 +44,10 @@ class MovieGridAdapter(
         fun bind(movie: Movie) {
             loadImage(movieUtils.getImagePoster(movie.poster_path))
             view.txtTitleMovie.text = movie.title
-            view.TxtRateMovie.text = "Rate : " + movie.vote_average
-//            view.setOnClickListener {
-//                onClickListener(movie)
-//            }
+            view.txtRateMovie.text = "Rate : " + movie.vote_average
+            view.setOnClickListener {
+                onClickListener(movie)
+            }
         }
     }
 
