@@ -12,7 +12,8 @@
 
     <dimen name="text_homepage_detail">13sp</dimen>
     <dimen name="text_runtime_detail">12sp</dimen>
-    <dimen name="txt_title_detail">18sp</dimen>
+    <dimen name="txt_title_detail">24sp</dimen>
+    <dimen name="txt_all_detail">18sp</dimen>
     <dimen name="text_genre">10sp</dimen>
     <integer name="discovery_columns">2</integer>
 </resources>

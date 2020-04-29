@@ -18,23 +18,30 @@
             android:id="@+id/cardImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clipToPadding="false"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:outlineProvider="none"
+            app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="15dp"
             app:cardElevation="2dp"
+            app:cardPreventCornerOverlap="true"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/imgMovieDetail"
-                android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:src="@drawable/ic_star_yellow_24dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgMovieDetail"
+                    android:layout_width="200dp"
+                    android:layout_height="250dp"
+                    android:src="#000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -53,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="@dimen/default_padding_margin"
-                android:layout_marginTop="100dp">
+                android:layout_marginTop="120dp">
 
                 <TextView
                     android:id="@+id/txtTitleMovieDetail"
@@ -102,6 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/default_padding_margin"
                     android:gravity="center"
+
                     android:text="Voted User: 500"
                     android:textAlignment="center"
                     android:textSize="16sp"
@@ -146,17 +154,32 @@
                     app:layout_constraintTop_toBottomOf="@id/txtPopularityDetail" />
 
                 <TextView
-                    android:id="@+id/txtGenreDetail"
+                    android:id="@+id/_txtGenreDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/default_padding_margin"
                     android:layout_marginTop="@dimen/quarter_padding_margin"
                     android:layout_marginRight="@dimen/default_padding_margin"
-                    android:text="Genre: Action, Sci-fi, Horor"
+                    android:text="Genre: "
                     android:textAllCaps="true"
-                    android:textSize="11sp"
+                    android:textSize="14sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/dividerHorizontal" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerGenreMovie"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/quarter_padding_margin"
+                    android:layout_marginRight="@dimen/default_padding_margin"
+                    android:orientation="horizontal"
+                    android:textAllCaps="true"
+                    app:layout_constraintLeft_toRightOf="@id/_txtGenreDetail"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dividerHorizontal"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_genre"
+                    tools:orientation="horizontal" />
 
                 <TextView
                     android:id="@+id/txtLanguageDetail"
@@ -167,9 +190,9 @@
                     android:layout_marginRight="@dimen/default_padding_margin"
                     android:text="Language: En"
                     android:textAllCaps="true"
-                    android:textSize="11sp"
+                    android:textSize="14sp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txtGenreDetail" />
+                    app:layout_constraintTop_toBottomOf="@id/_txtGenreDetail" />
 
                 <TextView
                     android:id="@+id/txtDateReleaseDetail"
@@ -180,7 +203,7 @@
                     android:layout_marginRight="@dimen/default_padding_margin"
                     android:text="Date Release: 05 - Mei - 2013"
                     android:textAllCaps="true"
-                    android:textSize="11sp"
+                    android:textSize="14sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/txtLanguageDetail" />
 
@@ -191,6 +214,7 @@
                     android:layout_margin="@dimen/default_padding_margin"
                     android:text="Synopsis: "
                     android:textStyle="bold"
+                    android:textSize="14sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/txtDateReleaseDetail" />
 
@@ -199,10 +223,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/default_padding_margin"
+                    android:textSize="14sp"
                     android:fontFamily="sans-serif-medium"
-                    tools:text="@tools:sample/lorem/random"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/_txtSynopsisDetail" />
+                    app:layout_constraintTop_toBottomOf="@id/_txtSynopsisDetail"
+                    tools:text="@tools:sample/lorem/random" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
