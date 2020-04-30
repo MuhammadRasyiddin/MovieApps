@@ -61,9 +61,10 @@ class DetailMovieActivity : AppCompatActivity() {
         }
 
         txtTitleMovieDetail.text = movie.title
-        txtPopularityDetail.text = "Popularity: ${movie.popularity}"
-        txtVoteDetail.text = "Voted User: " + movie.vote_count
-        txtRateMovieDetail.text = "Rate: " + movie.vote_average + "/10"
+        txtPopularityDetail.text = movie.popularity
+        txtVoteDetail.text = movie.vote_count
+        txtRateMovieDetail.text = movie.vote_average + " / 10"
+
         txtLanguageDetail.text = "Language: " + movie.original_language
 
         val pattern = "dd MMMM yyyy"
